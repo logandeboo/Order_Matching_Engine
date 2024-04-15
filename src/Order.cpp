@@ -1,22 +1,21 @@
-#include "Order.h"
+#include "../Include/Order.h"
 #include <iostream>
 #include <string>
 #include <set>
 #include <random>
+#include <ctime>
+#include <chrono>
 
 std::set<int> Order::pastIds;
 
-Order::Order(std::string timestamp, std::string assetName, std::string orderType, double price, int qty)
-    : timestamp(timestamp), assetName(assetName), orderType(orderType), price(price), quantity(qty)
+Order::Order(std::string assetName, std::string orderType, double price, int qty)
+    : assetName(assetName), orderType(orderType), price(price), quantity(qty)
 {
-
     orderId = generate_unique_order_id();
-
-    // timestamp = generate_timestamp();
+    timestamp = generate_timestamp();
 }
 
-// TEST THIS
-
+// TEST THIS FUNCTION
 int Order::generate_unique_order_id()
 {
     std::random_device rd;
@@ -38,6 +37,15 @@ int Order::generate_unique_order_id()
     // std::cout << std::endl;
 
     return possible_unique_id;
+}
+
+int64_t Order::generate_timestamp()
+{
+    using namespace std::chrono;
+    int64_t timestamp = std::chrono::duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+    std::cout << "Timestamp generatred: " << timestamp << std::endl;
+
+    return timestamp;
 }
 
 // Getters

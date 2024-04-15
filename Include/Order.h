@@ -19,10 +19,10 @@ private:
 
     // Functions
     int generate_unique_order_id();
-    // std::string generate_timestamp();
+    int64_t generate_timestamp();
 
 public:
-    Order(std::string timestamp, std::string assetName, std::string orderType, double price, int qty);
+    Order(std::string assetName, std::string orderType, double price, int qty);
 
     // Getters
     int get_order_id() const;
