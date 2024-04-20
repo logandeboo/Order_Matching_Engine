@@ -1,14 +1,15 @@
-#include "../Include/Exchange_Settings.h"
+#include "../Include/ExchangeSettings.h"
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
+// #include "json.hpp"
 
-nlohmann::json exchangeConfigsJson;
+nlohmann::json ExchangeSettings::exchangeConfigsJson;
 
-Exchange_Settings::Exchange_Settings()
+ExchangeSettings::ExchangeSettings()
 {
     // Read config file
-    std::string fileName = "../Settings/exchange_config.json";
+    std::string fileName = "../configs/exchange_config.json";
     std::ifstream exchangeConfigs(fileName);
 
     if (!exchangeConfigs.is_open())
@@ -21,12 +22,12 @@ Exchange_Settings::Exchange_Settings()
     exchangeConfigs.close();
 }
 
-nlohmann::json get_exchange_configs()
+nlohmann::json ExchangeSettings::get_exchange_configs()
 {
     return exchangeConfigsJson;
 }
 
-std::vector<std::string> get_tradable_universe()
+std::vector<std::string> ExchangeSettings::get_tradable_universe()
 {
     return exchangeConfigsJson["tradable_universe"];
 }

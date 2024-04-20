@@ -1,11 +1,12 @@
-#ifndef Market_Participant_H
-#define Market_Participant_H
+#ifndef MarketParticipantH
+#define MarketParticipantH
 
 #include "Order.h"
 #include <string>
 #include <unordered_map>
+#include <vector>
 
-class Market_Participant
+class MarketParticipant
 {
 
 private:
@@ -22,9 +23,9 @@ private:
     Order create_order();
 
 public:
-    Market_Participant();
+    MarketParticipant();
     void update_holdings();
     std::unordered_map<std::string, int> get_holdings();
 };
 
-#endif // Market_Participant_H
+#endif // MarketParticipant_H
