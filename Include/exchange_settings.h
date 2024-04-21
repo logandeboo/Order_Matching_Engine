@@ -1,18 +1,18 @@
-#ifndef ExchangeSettings_H
-#define ExchangeSettings_H
+#ifndef EXCHANGE_SETTINGS_H
+#define EXCHANGE_SETTINGS_H
 
 #include <fstream>
 #include <vector>
 #include <nlohmann/json.hpp>
-class ExchangeSettings
+class exchange_settings
 {
 private:
-    static nlohmann::json exchangeConfigsJson;
+    static nlohmann::json exchange_configs_json;
 
 public:
-    ExchangeSettings();
+    exchange_settings();
     nlohmann::json get_exchange_configs();
     std::vector<std::string> get_tradable_universe();
 
-#endif // ExchangeSettings_H
+#endif // EXCHANGE_SETTINGS_H
 };

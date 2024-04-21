@@ -1,6 +1,6 @@
 #include "../Include/Order.h"
-#include "../Include/ExchangeSettings.h"
-#include "../Include/MarketParticipant.h"
+#include "../Include/exchange_settings.h"
+#include "../Include/market_participant.h"
 #include <iostream>
 #include <string>
 
@@ -12,7 +12,7 @@
 int main()
 {
 
-    MarketParticipant m1;
+    market_participant m1;
 
     for (const auto &pair : m1.get_holdings())
     {
@@ -46,5 +46,3 @@ int main()
 
     return 0;
 }
-
-// run command: g++ -std=c++20 main.cpp Order.cpp ExchangeSettings.cpp Market_Participant.cpp -o main && ./main

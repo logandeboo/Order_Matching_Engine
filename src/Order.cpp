@@ -1,4 +1,4 @@
-#include "../Include/Order.h"
+#include "../Include/order.h"
 #include <iostream>
 #include <string>
 #include <set>
@@ -6,9 +6,9 @@
 #include <ctime>
 #include <chrono>
 
-std::set<int> Order::pastIds;
+std::set<int> order::pastIds;
 
-Order::Order(std::string assetName, std::string orderType, double price, int qty)
+order::order(std::string assetName, std::string orderType, double price, int qty)
     : assetName(assetName), orderType(orderType), price(price), quantity(qty)
 {
     orderId = generate_unique_order_id();
@@ -16,7 +16,7 @@ Order::Order(std::string assetName, std::string orderType, double price, int qty
 }
 
 // TEST THIS FUNCTION
-int Order::generate_unique_order_id()
+int order::generate_unique_order_id()
 {
     std::random_device rd;
     std::uniform_int_distribution<int> dist(1, 1000000);
@@ -24,7 +24,7 @@ int Order::generate_unique_order_id()
 
     do
     {
-        int possible_unique_id = dist(rd);
+        possible_unique_id = dist(rd);
 
     } while (pastIds.find(possible_unique_id) != pastIds.end());
 
@@ -39,7 +39,7 @@ int Order::generate_unique_order_id()
     return possible_unique_id;
 }
 
-int64_t Order::generate_timestamp()
+int64_t order::generate_timestamp()
 {
     using namespace std::chrono;
     int64_t timestamp = std::chrono::duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
@@ -49,32 +49,32 @@ int64_t Order::generate_timestamp()
 }
 
 // Getters
-int Order::get_order_id() const
+int order::get_order_id() const
 {
     return orderId;
 }
 
-std::string Order::get_timestamp() const
+std::string order::get_timestamp() const
 {
     return timestamp;
 }
 
-std::string Order::get_asset_name() const
+std::string order::get_asset_name() const
 {
     return assetName;
 }
 
-std::string Order::get_order_type() const
+std::string order::get_order_type() const
 {
     return orderType;
 }
 
-double Order::get_price() const
+double order::get_price() const
 {
     return price;
 }
 
-int Order::get_quantity() const
+int order::get_quantity() const
 {
     return quantity;
 }
