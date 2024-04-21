@@ -3,7 +3,7 @@
 #include <string>
 #include <set>
 
-class Order
+class order
 {
 private:
     // Variables
@@ -18,11 +18,11 @@ private:
     static std::set<int> pastIds;
 
     // Functions
-    int generate_unique_order_id();
     int64_t generate_timestamp();
+    int generate_unique_order_id();
 
 public:
-    Order(std::string assetName, std::string orderType, double price, int qty);
+    order(std::string assetName, std::string orderType, double price, int qty);
 
     // Getters
     int get_order_id() const;

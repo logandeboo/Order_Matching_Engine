@@ -16,8 +16,8 @@ add_subdirectory(lib/json)
 
 add_executable(Order_Matching_Engine
     src/main.cpp
-    src/MarketParticipant.cpp
-    src/Order.cpp
-    src/ExchangeSettings.cpp)
+    src/market_participant.cpp
+    src/order.cpp
+    src/exchange_settings.cpp)
 
 target_link_libraries(Order_Matching_Engine PRIVATE nlohmann_json::nlohmann_json)
