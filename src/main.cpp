@@ -32,6 +32,13 @@ int main()
     // std::cout << "Quantity: " << buyOrder.get_quantity() << std::endl;
 
     std::cout << "______________________________________________" << std::endl;
+
+    market_participant m2;
+
+    for (const auto &temp : m2.get_holdings())
+    {
+        std::cout << temp.first << ": " << temp.second << std::endl;
+    }
     // Create an Order object
     // Order sellOrder("TSLA", "SELL", 1231.42, 1);
     // Order sellOrder2("TSLA", "SELL", 1231.42, 1);

@@ -21,17 +21,11 @@ int market_participant::generate_unique_participant_id()
 
     do
     {
-        int unique_id = dist(rd);
+        unique_id = dist(rd);
 
     } while (pastIds.find(unique_id) != pastIds.end());
 
     pastIds.insert(unique_id);
-
-    // for (int num : pastIds)
-    // {
-    //     std::cout << num << " ";
-    // }
-    // std::cout << std::endl;
 
     return unique_id;
 }
